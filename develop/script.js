@@ -17,10 +17,10 @@ let uppercase = false;
 
 function prompts() {
     checkLength();
-    special = confirm("Click OK to confirm using special characters in your password.");
-    numbers = confirm("Click OK to confirm using numbers in your password.");
-    lowercase = confirm("Click OK to confirm using lowercase letters in your password.");
-    uppercase = confirm("Click OK to confirm using uppercase letters in your password.");
+    special = confirm("Click OK to confirm using special characters in your password. If you click Cancel, special characters will not be included in your password.");
+    numbers = confirm("Click OK to confirm using numbers in your password. If you click Cancel, numbers will not be included in your password.");
+    lowercase = confirm("Click OK to confirm using lowercase letters in your password. If you click Cancel, lowercase letters will not be included in your password.");
+    uppercase = confirm("Click OK to confirm using uppercase letters in your password. If you click Cancel, uppercase letters will not be included in your password.");
 }
 
 function checkLength() {
