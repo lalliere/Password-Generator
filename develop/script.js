@@ -1,4 +1,5 @@
 let generateBtn = document.querySelector("#generate");
+let copyBtn = document.querySelector("#copy");
 
 function writePassword() {
     prompts();
@@ -6,9 +7,6 @@ function writePassword() {
     let passwordText = document.querySelector("#password");
 
     passwordText.value = password;
-
-    // copyBtn.removeAttribute("disabled");
-    // copyBtn.focus();
 }
 
 let length = 0;
@@ -43,23 +41,23 @@ let smallLetters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", 
 let bigLetters = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
 
 
-//if user confirms they want special characters, add the characters array to the blank "pass" array
 function push() {
+    //if user confirms they want special characters, add the characters array to the blank "pass" array
     if (special) {
         pass.push(characters);
     }
 
-    //if user confirms they want numbers, add the digits array to the blank pass array
+    //if user confirms they want numbers, add the digits array to the blank "pass" array
     if (numbers) {
         pass.push(digits);
     }
 
-    //if user confirms they want lowercase letters, add the smallLetters array to the blank pass array
+    //if user confirms they want lowercase letters, add the smallLetters array to the blank "pass" array
     if (lowercase) {
         pass.push(smallLetters);
     }
 
-    //if user confirms they want uppercase letters, add the bigLetters array to the blank pass array
+    //if user confirms they want uppercase letters, add the bigLetters array to the blank "pass" array
     if (uppercase) {
         pass.push(bigLetters);
     }
@@ -69,6 +67,9 @@ function generatePassword() {
     let passString = "";
     for (i = 0; i < length; i++) {
         push();
+        if (pass.length === 0) {
+            alert("Please select at least one character type.")
+        }
         let randomChoices = pass[Math.floor(Math.random() * pass.length)];
         let selection = randomChoices[Math.floor(Math.random() * randomChoices.length)];
         
@@ -77,7 +78,16 @@ function generatePassword() {
     return passString;
 }
 
-// //  Add event listener to generate button
-generateBtn.addEventListener("click", writePassword);
+function copyPassword () {
+    let copyText = document.getElementById("password");
+    copyText.select();
+    document.execCommand("copy");
+    alert("Copied the text: " + copyText.value);
+}
 
-// BONUS EVENT LISTENER
+
+
+
+generateBtn.addEventListener("click", writePassword);
+copyBtn.addEventListener("click", copyPassword);
+
