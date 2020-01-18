@@ -17,4 +17,4 @@ The application will then provide the user with a randomly generated password co
 
 ## Preview: 
 
-<img src = assets/js-homework-demo.png>
+<img src = assets/password-gen-screen-shot.png>
