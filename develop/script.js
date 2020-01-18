@@ -68,7 +68,7 @@ function generatePassword() {
     for (i = 0; i < length; i++) {
         push();
         if (pass.length === 0) {
-            alert("Please select at least one character type.")
+            alert("Please select at least one character type to be in your password. Push the Generate Password button and try again.")
         }
         let randomChoices = pass[Math.floor(Math.random() * pass.length)];
         let selection = randomChoices[Math.floor(Math.random() * randomChoices.length)];
